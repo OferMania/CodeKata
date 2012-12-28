@@ -30,8 +30,6 @@ public class MainActivity extends Activity implements WorkerNotificationInterfac
 		statusView = (TextView)findViewById(R.id.status_view);
 		buttonWorker = (Button)findViewById(R.id.btn_worker);
 		workerIsRunning = false;
-//        mStatusView = (TextView)findViewById(R.id.status_view_a);
-//        mStatusAllView = (TextView)findViewById(R.id.status_view_all_a);
 	}
 	
 	public void pingWorker(View v) {
