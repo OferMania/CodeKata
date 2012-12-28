@@ -4,5 +4,11 @@
     <string name="app_name">CodeKata</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-
+    <string name="submit_label">Submit</string>
+    <string name="selection_prompt">Please Select a CodeKata</string>
+	<string-array name="codekata_list">
+        <item>0: Counting the Seconds</item>
+        <item>1: Supermarket Pricing</item>
+        <item>2: KarateChop</item>
+    </string-array>
 </resources>
