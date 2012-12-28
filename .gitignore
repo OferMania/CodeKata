@@ -8,3 +8,7 @@
 Worker/bin/*
 
 Worker/gen/com/example/worker/*
+
+CodeKata/bin/*
+
+CodeKata/gen/*
