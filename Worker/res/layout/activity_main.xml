@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg_color"
+    android:padding="8dip"
+    >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/btn_worker"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/btn_worker_start_label"
+            android:layout_marginLeft="10dp"
+            android:onClick="pingWorker"
+            />
+
+        <Button
+            android:id="@+id/btn_start_b"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/btn_start_b_label"
+            android:layout_marginLeft="150dp"
+            android:onClick="startActivityB"
+            />
+
+        <Button
+            android:id="@+id/btn_start_dialog"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/btn_start_dialog_label"
+            android:layout_marginLeft="250dp"
+            android:onClick="startDialog"
+            />
+        
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/btn_exit_label"
+            android:layout_marginLeft="350dp"
+            android:onClick="exit"
+            />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="300dp"
+         android:layout_marginTop="60dp">
+        <TextView
+            android:id="@+id/status_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:padding="4dip"
+            android:typeface="monospace"
+            />
+    </ScrollView>
+
+</RelativeLayout>

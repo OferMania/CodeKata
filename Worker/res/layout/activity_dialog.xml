@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    	android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:background="#88000000">
+	<LinearLayout 
+	    android:orientation="vertical"
+	    android:layout_width="225dp"
+	    android:layout_height="120dp"
+	    android:background="@color/dialog_bg_color"
+	    android:padding="12dip"
+	    >
+	
+		<TextView  
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/dialog_text"
+		    android:gravity="center_horizontal"
+		    android:textSize="12sp"
+		    android:textColor="@color/white"
+		    android:paddingBottom="12dip"
+		    />
+		
+		 <Button
+		     android:id="@+id/btn_okay"
+		     android:layout_height="wrap_content"
+		     android:layout_width="wrap_content"
+		     android:text="@string/btn_okay"
+		     android:layout_gravity="center_horizontal"
+		     android:onClick="okay"
+		     />
+	</LinearLayout>
+</RelativeLayout>

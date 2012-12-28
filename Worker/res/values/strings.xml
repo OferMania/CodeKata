@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Worker</string>
+    <string name="btn_start_b_label">Start B</string>
+    <string name="btn_start_dialog_label">Dialog</string>
+    <string name="btn_exit_label">Exit</string>
+    <string name="btn_okay">Okay</string>
+    <string name="btn_worker_start_label">Start Worker</string>
+    <string name="btn_worker_stop_label">Stop Worker</string>
+    <string name="dialog_text">This is a Dialog</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+
+</resources>
