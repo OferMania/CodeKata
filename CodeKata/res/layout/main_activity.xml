@@ -6,6 +6,7 @@
     tools:context=".MainActivity" >
 
     <TextView 
+        android:id="@+id/main_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -43,5 +44,6 @@
         android:layout_marginLeft="10dip" 
         android:layout_marginRight="10dip"
         android:layout_marginTop="120dip" 
-        android:text="@string/submit_label" />
+        android:text="@string/submit_label"
+        android:onClick="submitClicked" />
 </RelativeLayout>

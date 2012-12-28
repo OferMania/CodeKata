@@ -2,14 +2,27 @@ package com.example.codekata;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.res.Resources;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+	TextView label;
+	Spinner spinner;
+	Button submit;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_activity);
+		Resources resources = getResources();
+		label = (TextView)findViewById(resources.getIdentifier("main_label", "id", "com.example.codekata"));
+		spinner = (Spinner)findViewById(resources.getIdentifier("main_spinner", "id", "com.example.codekata"));
+		submit = (Button)findViewById(resources.getIdentifier("main_submit", "id", "com.example.codekata"));		
 	}
 
 	@Override
@@ -19,4 +32,8 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	public void submitClicked(View v) {
+		String selection = String.valueOf(spinner.getSelectedItemPosition());
+		label.setText(selection);
+	}
 }
