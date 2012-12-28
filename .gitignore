@@ -5,26 +5,6 @@
 
 *.apk
 
-Worker/bin/AndroidManifest.xml
+Worker/bin/*
 
-Worker/bin/classes.dex
-
-Worker/bin/dexedLibs/android-support-v4-8446ed32a9e1797dd79cd8ccdc45ff46.jar
-
-Worker/bin/res/drawable-hdpi/ic_launcher.png
-
-Worker/bin/res/drawable-ldpi/ic_launcher.png
-
-Worker/bin/res/drawable-mdpi/ic_launcher.png
-
-Worker/bin/res/drawable-xhdpi/ic_launcher.png
-
-Worker/bin/resources.ap_
-
-Worker/gen/com/example/worker/BuildConfig.java
-
-Worker/gen/com/example/worker/R.java
-
-Worker/bin/dexedLibs/android-support-v4-b5daaef43b7a3debe184becb1fda969e.jar
-
-Worker/bin/jarlist.cache
+Worker/gen/com/example/worker/*
