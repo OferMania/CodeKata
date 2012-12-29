@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="b_bg_color">#FFFF00</color>
+    <color name="black">#000000</color>
+    <color name="dialog_bg_color">#CC7700</color>
+    <color name="main_bg_color">#AAAAAA</color>
+</resources>

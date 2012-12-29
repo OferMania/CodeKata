@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg_color"
+    android:padding="8dip"
+    >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/ck0_back_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/btn_back_label"
+            android:layout_marginLeft="10dp"
+            android:onClick="back"
+            />
+        
+        <Button
+            android:id="@+id/ck0_task_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/btn_task_start_label"
+            android:layout_marginLeft="350dp"
+            android:onClick="pingTask"
+            />
+        
+    </RelativeLayout>
+
+
+    <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="300dp"
+         android:layout_marginTop="60dp">
+        <TextView
+            android:id="@+id/ck0_status_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:padding="4dip"
+            android:typeface="monospace"
+            />
+    </ScrollView>
+
+</RelativeLayout>
