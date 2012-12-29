@@ -25,6 +25,13 @@ public class CodeKataActivityBase extends Activity implements TaskNotificationIn
 		taskIsRunning = false;
 	}
 	
+	protected void onDestroy() {
+		if (taskIsRunning && (codeKataTask != null)) {
+			codeKataTask.cancel(true);
+		}
+		super.onDestroy();
+	}
+	
 	public void pingTask(View v) {
 		if (!taskIsRunning) {
 			codeKataTask = new CodeKataTaskBase(this);

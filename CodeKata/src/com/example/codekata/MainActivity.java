@@ -2,7 +2,9 @@ package com.example.codekata;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +35,13 @@ public class MainActivity extends Activity {
 	}
 
 	public void submitClicked(View v) {
-		String selection = String.valueOf(spinner.getSelectedItemPosition());
-		label.setText(selection);
+		int index = spinner.getSelectedItemPosition();
+		Class correspondingActivity = CodeKataConfig.instance().indexToActivityMap.get(index);
+		if (correspondingActivity != null) {
+			Intent intent = new Intent(this, correspondingActivity);
+	        startActivity(intent);
+		}
+//		String selection = String.valueOf(spinner.getSelectedItemPosition());
+//		label.setText(selection);
 	}
 }
