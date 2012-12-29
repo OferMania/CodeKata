@@ -6,6 +6,7 @@
     <string name="btn_okay_label">Okay</string>
     <string name="btn_task_start_label">Start Task</string>
     <string name="btn_task_stop_label">Stop Task</string>
+    <string name="cannot_start_activity">Unable to Start This Page. It might not be implemented yet.</string>
     <string name="dialog_text">This is a Dialog</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>

@@ -38,8 +38,15 @@ public class MainActivity extends Activity {
 		int index = spinner.getSelectedItemPosition();
 		Class correspondingActivity = CodeKataConfig.instance().indexToActivityMap.get(index);
 		if (correspondingActivity != null) {
+			// If CodeKataConfig has an activity for the index the user chose, then start that activity
 			Intent intent = new Intent(this, correspondingActivity);
 	        startActivity(intent);
+		} else {
+			// If CodeKataConfig couldn't locate an activity for the user's selection, then show
+			// a dialog notifying the user of this...
+			Intent intent = new Intent(this, DialogActivity.class);
+			intent.putExtra("messageId", R.string.cannot_start_activity);
+			startActivity(intent);
 		}
 //		String selection = String.valueOf(spinner.getSelectedItemPosition());
 //		label.setText(selection);
