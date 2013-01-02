@@ -13,6 +13,8 @@ public class CodeKataTaskBase extends AsyncTask<String, String, String> {
     protected String doInBackground(String... commands) {
         int count = commands.length;
         long totalSize = 0;
+        boolean gotCancelled = false;
+        StringBuffer progressBuffer = null;
         for (int i = 0; i < count; i++) {
         	try {
 				Thread.sleep(1000);
@@ -20,47 +22,59 @@ public class CodeKataTaskBase extends AsyncTask<String, String, String> {
 				e.printStackTrace();
 			}
             ++totalSize;
-            publishProgress(String.valueOf((int) (((i+1) / (float) count) * 100)));
+            progressBuffer = new StringBuffer("COMPLETED ");
+    		progressBuffer.append(String.valueOf((int) (((i+1) / (float) count) * 100)));
+    		progressBuffer.append(" %");
+            publishProgress(progressBuffer.toString());
             // Escape early if cancel() is called
-            if (isCancelled()) break;
+            if (isCancelled()) {
+            	gotCancelled = true;
+            	break;
+            }
         }
-        return String.valueOf(totalSize);
+        
+        progressBuffer = new StringBuffer("COMPLETED ");
+		progressBuffer.append(String.valueOf(totalSize));
+		progressBuffer.append(" UNITS. ");
+		if (gotCancelled) {
+			progressBuffer.append("JOB INCOMPLETE!!!");
+		} else {
+			progressBuffer.append("JOB FINISHED!!!!");
+		}
+		
+        return progressBuffer.toString();
     }
 
     protected void onProgressUpdate(String... progress) {
-    	if ((notifierActivity != null) && (progress != null) && (progress.length >= 1)) {
-    		StringBuffer progressBuffer = new StringBuffer("COMPLETED ");
-    		progressBuffer.append(progress[0]);
-    		progressBuffer.append(" %");
+    	StringBuffer progressBuffer = new StringBuffer("");
+    	if (progress != null) {
+    		for (String progress_i : progress) {
+    			progressBuffer.append(progress_i);
+    			progressBuffer.append('\n');
+    		}
+    	}
+    	if (notifierActivity != null) {
     		notifierActivity.setStatusText(progressBuffer.toString());
     	}
     }
 
     protected void onCancelled() {
+		super.onCancelled();
     	if (notifierActivity != null) {
-    		super.onCancelled();
 			notifierActivity.taskGotCancelled();
     	}
     }
     
     protected void onCancelled(String result) {
     	if (notifierActivity != null) {
-    		StringBuffer progressBuffer = new StringBuffer("COMPLETED ");
-    		progressBuffer.append(result);
-    		progressBuffer.append(" UNITS. ");
-    		progressBuffer.append("JOB INCOMPLETE!!!");
-    		notifierActivity.setStatusText(progressBuffer.toString());
+    		notifierActivity.setStatusText(result);
     		notifierActivity.taskGotCancelled();
     	}
     }
     
     protected void onPostExecute(String result) {
     	if (notifierActivity != null) {
-    		StringBuffer progressBuffer = new StringBuffer("COMPLETED ");
-    		progressBuffer.append(result);
-    		progressBuffer.append(" UNITS. ");
-    		progressBuffer.append("JOB FINISHED!!!!");
-    		notifierActivity.setStatusText(progressBuffer.toString());
+    		notifierActivity.setStatusText(result);
     		notifierActivity.taskEnded();
     	}
     }

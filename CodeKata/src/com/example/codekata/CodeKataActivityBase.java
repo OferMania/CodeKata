@@ -3,25 +3,44 @@ package com.example.codekata;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class CodeKataActivityBase extends Activity implements TaskNotificationInterface {
 
 	TextView statusView;
 	Button taskButton;
+	EditText[] textInputs;
 	
 	CodeKataTaskBase codeKataTask;
 	boolean taskIsRunning;
 	
+	int kataId;
+	int numTextInputs;
+	
+	public CodeKataActivityBase() {
+		super();
+		kataId = 0;
+		numTextInputs = 2;
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.code_kata_activity_base);
-		statusView = (TextView)findViewById(R.id.ck0_status_view);
-		taskButton = (Button)findViewById(R.id.ck0_task_btn);
+		setContentView(getLayoutId());
+		Resources resources = getResources();
+		statusView = (TextView)findViewById(resources.getIdentifier(getStatusViewIdentifier(), "id", "com.example.codekata"));
+		taskButton = (Button)findViewById(resources.getIdentifier(getTaskButtonIdentifier(), "id", "com.example.codekata"));
+		if (numTextInputs >= 1) {
+			textInputs = new EditText[numTextInputs];
+			for (int ii = 1; ii <= numTextInputs; ++ii) {
+				textInputs[ii-1] = (EditText)findViewById(resources.getIdentifier(getTextInputIdentifier(ii), "id", "com.example.codekata"));
+			}
+		}
 		taskIsRunning = false;
 	}
 	
@@ -32,11 +51,47 @@ public class CodeKataActivityBase extends Activity implements TaskNotificationIn
 		super.onDestroy();
 	}
 	
+	protected int getLayoutId() {
+		return R.layout.code_kata_activity_base;
+	}
+	
+	private String getStatusViewIdentifier() {
+		StringBuffer buffer = new StringBuffer("ck");
+		buffer.append(String.valueOf(kataId));
+		buffer.append("_status_view");
+		return buffer.toString();
+	}
+	
+	private String getTaskButtonIdentifier() {
+		StringBuffer buffer = new StringBuffer("ck");
+		buffer.append(String.valueOf(kataId));
+		buffer.append("_task_btn");
+		return buffer.toString();
+	}
+	
+	private String getTextInputIdentifier(int inputNumber) {
+		StringBuffer buffer = new StringBuffer("ck");
+		buffer.append(String.valueOf(kataId));
+		buffer.append("_input");
+		buffer.append(String.valueOf(inputNumber));
+		return buffer.toString();
+	}
+	
 	public void pingTask(View v) {
 		if (!taskIsRunning) {
 			codeKataTask = new CodeKataTaskBase(this);
 			taskIsRunning = true;
-			codeKataTask.execute("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+			StringBuffer buffer = new StringBuffer();
+			for (EditText textInput : textInputs) {
+				if (textInput != null) {
+					buffer.append(textInput.getText().toString());
+					buffer.append('\n');
+				}
+			}
+			
+			String[] params = buffer.toString().split("\\n");
+			// codeKataTask.execute("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+			codeKataTask.execute(params);
 			taskButton.setText(R.string.btn_task_stop_label);
 		} else if (codeKataTask != null) {
 			codeKataTask.cancel(true);
