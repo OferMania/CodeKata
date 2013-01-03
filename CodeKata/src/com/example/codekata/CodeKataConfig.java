@@ -9,6 +9,7 @@ public class CodeKataConfig {
 	private CodeKataConfig() {
 		indexToActivityMap = new SparseArray<Class>();
 		indexToActivityMap.append(0, CodeKataActivityBase.class);
+		indexToActivityMap.append(1, CodeKataActivityOne.class);
 	}
 	
 	private static CodeKataConfig instance = null;	

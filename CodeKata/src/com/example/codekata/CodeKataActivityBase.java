@@ -55,6 +55,10 @@ public class CodeKataActivityBase extends Activity implements TaskNotificationIn
 		return R.layout.code_kata_activity_base;
 	}
 	
+	protected CodeKataTaskBase getNewCodeKataTask() {
+		return new CodeKataTaskBase(this);
+	}
+	
 	private String getStatusViewIdentifier() {
 		StringBuffer buffer = new StringBuffer("ck");
 		buffer.append(String.valueOf(kataId));
@@ -79,7 +83,7 @@ public class CodeKataActivityBase extends Activity implements TaskNotificationIn
 	
 	public void pingTask(View v) {
 		if (!taskIsRunning) {
-			codeKataTask = new CodeKataTaskBase(this);
+			codeKataTask = getNewCodeKataTask();
 			taskIsRunning = true;
 			StringBuffer buffer = new StringBuffer();
 			for (EditText textInput : textInputs) {

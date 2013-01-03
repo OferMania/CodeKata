@@ -17,26 +17,32 @@ public class CodeKataTaskOne extends CodeKataTaskBase {
     		progressBuffer.append(String.valueOf(i+1));
             publishProgress(progressBuffer.toString());
             
+            try {
         	String[] tokens = commands[i].split(",");
         	if (tokens.length < 4) {
         		continue;
         	}
         	String name = tokens[1];
-        	int quantity = Integer.valueOf(tokens[2]);
-        	float price = Float.valueOf(tokens[3]);
+        	int quantity = Integer.valueOf(tokens[2].trim());
+        	float price = Float.valueOf(tokens[3].trim());
         	float subtotal = quantity * price;
         	
         	resultsBuffer.append(String.valueOf(quantity));
-        	resultsBuffer.append(" of ");
+        	resultsBuffer.append(" * ");
         	resultsBuffer.append(name);
-        	resultsBuffer.append(" at unit price ");
+        	resultsBuffer.append(" (");
         	resultsBuffer.append(String.valueOf(price));
-        	resultsBuffer.append(", charge cost: ");
+        	resultsBuffer.append(") = ");
         	resultsBuffer.append(String.valueOf(subtotal));
         	resultsBuffer.append('\n');
         	
         	total += subtotal;
-        	
+            } catch (NumberFormatException e) {
+            	resultsBuffer.append("Input format on line ");
+            	resultsBuffer.append(String.valueOf(i+1));
+            	resultsBuffer.append(" is invalid. Ignoring...\n");
+            	continue;
+            }
             // Escape early if cancel() is called
             if (isCancelled()) {
             	gotCancelled = true;
@@ -48,8 +54,9 @@ public class CodeKataTaskOne extends CodeKataTaskBase {
 		if (gotCancelled) {
 			progressBuffer.append("JOB INCOMPLETE!!!");
 		} else {
+			progressBuffer.append(resultsBuffer);
 			progressBuffer.append("------------------------\n");
-			progressBuffer.append("Total Charge: ");
+			progressBuffer.append("Total Charge = ");
 			progressBuffer.append(String.valueOf(total));
 			progressBuffer.append('\n');
 		}
