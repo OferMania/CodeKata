@@ -60,6 +60,7 @@
             android:background="@color/white"
             android:textColor="@color/black"
             android:inputType="textMultiLine"
+            android:text="@string/codekata1_default_input1" 
             android:padding="4dip"
             android:typeface="monospace"
             />
