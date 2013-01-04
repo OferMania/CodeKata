@@ -24,7 +24,8 @@
         </activity>
         <activity android:name=".CodeKataActivityBase" />
         <activity android:name=".CodeKataActivityOne" />
-
+        <activity android:name=".CodeKataActivityTwo" />
+        
         <activity android:name=".DialogActivity"
                   android:theme="@android:style/Theme.Dialog" />
     </application>

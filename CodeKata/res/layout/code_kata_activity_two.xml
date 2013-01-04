@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg_color"
+    android:padding="8dip"
+    >
+    <TextView 
+        android:id="@+id/main_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="10dip"
+        android:text="@string/codekata2_title" 
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="center"
+        />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dip"
+        >
+        <Button
+            android:id="@+id/ck2_back_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/btn_back_label"
+            android:layout_marginLeft="10dp"
+            android:onClick="back"
+            />
+        
+        <Button
+            android:id="@+id/ck2_task_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/btn_task_start_label"
+            android:layout_marginLeft="90dp"
+            android:onClick="pingTask"
+            />
+        
+    </RelativeLayout>
+
+    <ScrollView
+         android:layout_alignParentLeft="true"
+         android:layout_width="match_parent"
+         android:layout_height="130dp"
+         android:layout_marginLeft="0dp"
+         android:layout_marginTop="90dp">
+        <EditText
+            android:id="@+id/ck2_input1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:inputType="textMultiLine"
+            android:text="@string/codekata2_default_input1" 
+            android:padding="4dip"
+            android:typeface="monospace"
+            />
+    </ScrollView>
+
+    <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="300dp"
+         android:layout_marginTop="230dp">
+        <TextView
+            android:id="@+id/ck2_status_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:padding="4dip"
+            android:typeface="monospace"
+            />
+    </ScrollView>
+
+</RelativeLayout>
