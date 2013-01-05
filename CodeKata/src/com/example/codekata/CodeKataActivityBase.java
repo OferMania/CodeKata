@@ -139,4 +139,7 @@ public class CodeKataActivityBase extends Activity implements TaskNotificationIn
     	}    	
     }
 
+    public Object getSystemService() {
+    	return this.getSystemService(Context.ACTIVITY_SERVICE);
+    }
 }
