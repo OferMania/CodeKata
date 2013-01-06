@@ -46,4 +46,15 @@
         android:layout_marginTop="120dip" 
         android:text="@string/submit_label"
         android:onClick="submitClicked" />
+
+    <ImageView 
+        android:id="@+id/main_splash_image"
+        android:src="@drawable/splash_screen"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        />
 </RelativeLayout>

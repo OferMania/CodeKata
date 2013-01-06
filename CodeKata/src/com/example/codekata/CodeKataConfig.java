@@ -9,7 +9,10 @@ public class CodeKataConfig {
 	public static final int ERROR_USER_CANCELLED = -2;
 	public static final int ERROR_NOT_FOUND = -1;
 	public static final float ERROR_FLOAT_TOLERANCE = 1e-7f;
-
+	
+	public static final int MESSAGE_SPLASH_STOP = 1;
+	public static final long MESSAGE_SPLASH_TIME = 5000;
+	
 	private CodeKataConfig() {
 		indexToActivityMap = new SparseArray<Class>();
 		indexToActivityMap.append(0, CodeKataActivityBase.class);
